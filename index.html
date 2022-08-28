@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Color Generator</title>
+	<meta name="description" content="Random color generator that detects the intensity to adapt the color of the letters and they can be more readable.">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		*:focus{outline: none;}
+
+		body{
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			transition: background 1s ease;
+		}
+
+		.info{
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			text-align: center;
+			transition: color 1s ease;
+		}
+
+		h1#color{ font-size: 2.5em; }
+
+		button{
+			background: white;
+			padding: 10px 25px;
+			margin-top: 25px;
+			border-radius: 5px;
+			border: none;
+			font-size: 14px;
+			cursor: pointer;
+		}
+
+		button:hover{
+			background: lightgrey;
+		}
+	</style>
+	<script>
+		function getNewColor() {
+			let color = Math.random().toString(16).substr(2,6);
+			let colorHex = '#' + color;
+
+			const text = document.getElementById('color');
+			text.innerText = colorHex.toUpperCase();
+			document.body.style.background = colorHex;
+
+			const hexR = parseInt(color.substr(0, 2), 16);
+			const hexG = parseInt(color.substr(2, 2), 16);
+			const hexB = parseInt(color.substr(4, 2), 16);
+			// Gets the average value of the colors
+			const contrastRatio = (hexR + hexG + hexB) / (255 * 3);
+
+			if (contrastRatio >= 0.5) {
+				text.style.color = 'black'
+				document.getElementById("by").style.color = 'black'
+			} else {
+				text.style.color = 'white';
+				document.getElementById("by").style.color = 'white'
+			}
+		}
+
+		window.onload = function () {
+			getNewColor()
+		}
+	</script>
+</head>
+<body>
+	<div class="info">
+		<h1 id="color"></h1>
+		<p id="by">By: Cristian Velazquez</p>
+		<button onclick="getNewColor()">Generate</button>
+	</div>
+</body>
+</html>

@@ -4,6 +4,10 @@
 
 Random color generator that detects the intensity to adapt the color of the letters and they can be more readable.
 
+## Page
+
+[Go to page](https://cristian-velazquez.github.io/random-color-generator/)
+
 ## Images
 
 ### Text color white
@@ -13,7 +17,3 @@ Random color generator that detects the intensity to adapt the color of the lett
 ### Text color black
 
 ![text color black](https://64.media.tumblr.com/db7a8cffeef259f756dac8c45e6b24f6/5b75238d69d60781-64/s1280x1920/1f63ff26c99e1ec87a66cf08bb7f3290be2e3b51.png)
-
-## Page
-
-[Go to page](https://cristian-velazquez.github.io/random-color-generator/)
